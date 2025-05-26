@@ -2,24 +2,23 @@ import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
 import { router } from "expo-router";
 
-interface CadastroFormProps {
-  onCadastro: () => void;
-  onNavigateToLogin: () => void;
+interface LoginFormProps {
+  onLogin: () => void;
+  onNavigateToCadastro: () => void;
+  onNavigateToEsqueciSenha: () => void;
 }
 
-export default function CadastroForm({ onCadastro, onNavigateToLogin }: CadastroFormProps) {
-  const [nome, setNome] = useState("");
+export default function LoginForm({ onLogin, onNavigateToCadastro, onNavigateToEsqueciSenha }: LoginFormProps) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState<{ nome?: string; email?: string; senha?: string }>({});
+  const [errors, setErrors] = useState<{ email?: string; senha?: string }>({});
 
   const validate = () => {
     const newErrors: typeof errors = {};
 
-    if (nome.trim().length < 2) newErrors.nome = "Nome deve ter pelo menos 2 caracteres.";
     if (!email.includes("@") || !email.includes(".")) newErrors.email = "Digite um email válido.";
-    if (senha.length < 6) newErrors.senha = "Senha deve ter pelo menos 6 caracteres.";
+    if (!senha) newErrors.senha = "Digite sua senha.";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -32,27 +31,17 @@ export default function CadastroForm({ onCadastro, onNavigateToLogin }: Cadastro
 
     setTimeout(() => {
       setIsLoading(false);
-      alert("Cadastro realizado com sucesso!");
-      onCadastro();
+      console.log("Login com:", { email, senha });
+      alert("Login realizado com sucesso!");
+      onLogin();
     }, 1000);
   };
 
   return (
     <View className="flex-1 justify-center px-5 bg-white">
       <View className="w-full max-w-[300px] mx-auto">
-        <Text className="text-2xl font-bold text-center text-gray-800 mb-1">CADASTRO</Text>
-        <Text className="text-sm text-center text-gray-500 mb-6">Crie uma conta</Text>
-
-        <View className="mb-4">
-          <Text className="text-sm font-medium text-gray-700 mb-1 uppercase">Nome</Text>
-          <TextInput
-            className={`w-full border ${errors.nome ? "border-red-500" : "border-gray-300"} rounded-lg px-3 py-3 text-base placeholder-gray-400`}
-            placeholder="Digite o seu nome"
-            value={nome}
-            onChangeText={setNome}
-          />
-          {errors.nome && <Text className="text-xs text-red-500 mt-1">{errors.nome}</Text>}
-        </View>
+        <Text className="text-2xl font-bold text-center text-gray-800 mb-1">LOGIN</Text>
+        <Text className="text-sm text-center text-gray-500 mb-6">Acesse sua conta</Text>
 
         <View className="mb-4">
           <Text className="text-sm font-medium text-gray-700 mb-1 uppercase">Email</Text>
@@ -79,6 +68,10 @@ export default function CadastroForm({ onCadastro, onNavigateToLogin }: Cadastro
           {errors.senha && <Text className="text-xs text-red-500 mt-1">{errors.senha}</Text>}
         </View>
 
+        <TouchableOpacity className="self-end mb-4" onPress={() => router.push("/esqueciS")}>
+          <Text className="text-sm text-blue-500">Esqueceu a senha?</Text>
+        </TouchableOpacity>
+
         <TouchableOpacity
           className={`w-full py-3 rounded-full flex items-center justify-center ${isLoading ? "bg-blue-400" : "bg-blue-500"}`}
           disabled={isLoading}
@@ -87,17 +80,17 @@ export default function CadastroForm({ onCadastro, onNavigateToLogin }: Cadastro
           {isLoading ? (
             <ActivityIndicator size="small" color="#fff" />
           ) : (
-            <Text className="text-white font-semibold text-base">Cadastrar</Text>
+            <Text className="text-white font-semibold text-base">Entrar</Text>
           )}
         </TouchableOpacity>
 
         <View className="mt-8 items-center space-y-2">
-          <Text className="text-sm text-gray-500">Já tem uma conta?</Text>
-          <TouchableOpacity
+          <Text className="text-sm text-gray-500">Não tem uma conta?</Text>
+            <TouchableOpacity
             className="w-full border border-gray-300 py-3 rounded-full flex items-center justify-center"
-            onPress={() => router.push("/login")}
-          >
-            <Text className="text-gray-700 font-semibold text-base">Entrar</Text>
+            onPress={() => router.push("/cadastro")}
+            >
+            <Text className="text-gray-700 font-semibold text-base">Cadastrar</Text>
           </TouchableOpacity>
         </View>
       </View>
