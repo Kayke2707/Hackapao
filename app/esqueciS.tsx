@@ -41,9 +41,9 @@ export default function EsqueciSenhaForm({ onNavigateToLogin }: EsqueciSenhaForm
         </Text>
 
         <View className="mb-4">
-          <Text className="text-sm font-medium text-white mb-1 uppercase">Email</Text>
+          <Text className="text-sm font-medium text-white mb-1">Email</Text>
           <TextInput
-            className={`w-full border ${error ? "border-red-500" : "border-gray-300"} rounded-lg px-3 py-3 text-base text-white placeholder-gray-400 bg-[#2C2C2C]`}
+            className={`w-full border ${error ? "border-red-500" : "border-gray-300"} rounded-xl px-3 py-3 text-base text-white placeholder-gray-400`}
             placeholder="Digite o seu email"
             value={email}
             onChangeText={setEmail}
@@ -54,7 +54,7 @@ export default function EsqueciSenhaForm({ onNavigateToLogin }: EsqueciSenhaForm
         </View>
 
         <TouchableOpacity
-          className={`w-full py-3 rounded-xl flex items-center justify-center ${isLoading ? "bg-[#6589E5]/50" : "bg-[#6589E5]"}`}
+          className={`w-full py-2 rounded-xl flex items-center justify-center ${isLoading ? "bg-[#6589E5]/50" : "bg-[#6589E5]"}`}
           disabled={isLoading}
           onPress={handleSubmit}
         >
@@ -68,7 +68,7 @@ export default function EsqueciSenhaForm({ onNavigateToLogin }: EsqueciSenhaForm
         <View className="mt-8 items-center space-y-2">
           <Text className="text-sm text-gray-400">Lembrou sua senha?</Text>
           <TouchableOpacity
-            className="w-full border border-gray-300 py-3 rounded-xl flex items-center justify-center"
+            className="w-full border border-gray-300 py-2.5 rounded-xl flex items-center justify-center"
             onPress={() => router.push("/login")}
           >
             <Text className="text-white font-semibold text-base">Voltar para o login</Text>

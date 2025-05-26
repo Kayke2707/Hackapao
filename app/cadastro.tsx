@@ -46,7 +46,7 @@ export default function CadastroForm({ onCadastro, onNavigateToLogin }: Cadastro
         <View className="mb-4">
           <Text className="text-sm font-medium text-white mb-1">Nome</Text>
           <TextInput
-            className={`w-full border ${errors.nome ? "border-red-500" : "border-gray-300"} rounded-lg px-3 py-3 text-base text-white placeholder-white/50 bg-[#2C2C2C]`}
+            className={`w-full border ${errors.nome ? "border-red-500" : "border-gray-300"} rounded-xl px-3 py-3 text-base text-white placeholder-white/50`}
             placeholder="Digite o seu nome"
             value={nome}
             onChangeText={setNome}
@@ -57,7 +57,7 @@ export default function CadastroForm({ onCadastro, onNavigateToLogin }: Cadastro
         <View className="mb-4">
           <Text className="text-sm font-medium text-white mb-1">Email</Text>
           <TextInput
-            className={`w-full border ${errors.email ? "border-red-500" : "border-gray-300"} rounded-lg px-3 py-3 text-base text-white placeholder-white/50 bg-[#2C2C2C]`}
+            className={`w-full border ${errors.email ? "border-red-500" : "border-gray-300"} rounded-xl px-3 py-3 text-base text-white placeholder-white/50`}
             placeholder="Digite o seu email"
             value={email}
             onChangeText={setEmail}
@@ -70,7 +70,7 @@ export default function CadastroForm({ onCadastro, onNavigateToLogin }: Cadastro
         <View className="mb-4">
           <Text className="text-sm font-medium text-white mb-1">Senha</Text>
           <TextInput
-            className={`w-full border ${errors.senha ? "border-red-500" : "border-gray-300"} rounded-lg px-3 py-3 text-base text-white placeholder-white/50 bg-[#2C2C2C]`}
+            className={`w-full border ${errors.senha ? "border-red-500" : "border-gray-300"} rounded-xl px-3 py-3 text-base text-white placeholder-white/50 `}
             placeholder="Digite o seu senha"
             value={senha}
             onChangeText={setSenha}
@@ -80,7 +80,7 @@ export default function CadastroForm({ onCadastro, onNavigateToLogin }: Cadastro
         </View>
 
         <TouchableOpacity
-          className={`w-full py-3 rounded-xl flex items-center justify-center ${isLoading ? "bg-[#6589E5]/50" : "bg-[#6589E5]"}`}
+          className={`w-full py-2 rounded-xl flex items-center justify-center ${isLoading ? "bg-[#6589E5]/50" : "bg-[#6589E5]"}`}
           disabled={isLoading}
           onPress={handleSubmit}
         >
@@ -94,7 +94,7 @@ export default function CadastroForm({ onCadastro, onNavigateToLogin }: Cadastro
         <View className="mt-4 items-center">
           <Text className="text-sm text-white mb-2">Já tem uma conta?</Text>
           <TouchableOpacity
-            className="w-full border border-white py-3 rounded-xl flex items-center justify-center"
+            className="w-full border border-white py-2.5 rounded-xl flex items-center justify-center"
             onPress={() => router.push("/login")}
           >
             <Text className="text-white font-semibold text-base">Entrar</Text>
