@@ -38,7 +38,7 @@ export default function Index() {
 
             <View className="w-48 h-[0.1] bg-gray-500 m-7"/>
 
-            <View className="w-80 h-48 bg-[#2C2C2C] rounded-xl gap-3 ">
+            <View className="w-80  bg-[#2C2C2C] rounded-xl gap-3  p-2">
 
                 <Text className="text-xl text-white">
                     Regras
@@ -58,6 +58,10 @@ export default function Index() {
 
                 <Text className="text-sm text-white">
                     -Resposta errada ou em branco: 0 pontos
+                </Text>
+
+                <Text className="text-sm text-white">
+                    -10 perguntas
                 </Text>
 
             </View>
