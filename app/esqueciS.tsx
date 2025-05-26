@@ -33,17 +33,17 @@ export default function EsqueciSenhaForm({ onNavigateToLogin }: EsqueciSenhaForm
   };
 
   return (
-    <View className="flex-1 justify-center px-5 bg-white">
+    <View className="flex-1 justify-center px-5 bg-[#121212]">
       <View className="w-full max-w-[300px] mx-auto">
-        <Text className="text-2xl font-bold text-center text-gray-800 mb-1">Recuperar Senha</Text>
-        <Text className="text-sm text-center text-gray-500 mb-6">
+        <Text className="text-2xl font-bold text-center text-white mb-1">Recuperar Senha</Text>
+        <Text className="text-sm text-center text-gray-400 mb-6">
           Digite seu email para receber instruções de recuperação
         </Text>
 
         <View className="mb-4">
-          <Text className="text-sm font-medium text-gray-700 mb-1 uppercase">Email</Text>
+          <Text className="text-sm font-medium text-white mb-1 uppercase">Email</Text>
           <TextInput
-            className={`w-full border ${error ? "border-red-500" : "border-gray-300"} rounded-lg px-3 py-3 text-base placeholder-gray-400`}
+            className={`w-full border ${error ? "border-red-500" : "border-gray-300"} rounded-lg px-3 py-3 text-base text-white placeholder-gray-400 bg-[#2C2C2C]`}
             placeholder="Digite o seu email"
             value={email}
             onChangeText={setEmail}
@@ -54,7 +54,7 @@ export default function EsqueciSenhaForm({ onNavigateToLogin }: EsqueciSenhaForm
         </View>
 
         <TouchableOpacity
-          className={`w-full py-3 rounded-full flex items-center justify-center ${isLoading ? "bg-blue-400" : "bg-blue-500"}`}
+          className={`w-full py-3 rounded-xl flex items-center justify-center ${isLoading ? "bg-[#6589E5]/50" : "bg-[#6589E5]"}`}
           disabled={isLoading}
           onPress={handleSubmit}
         >
@@ -66,12 +66,12 @@ export default function EsqueciSenhaForm({ onNavigateToLogin }: EsqueciSenhaForm
         </TouchableOpacity>
 
         <View className="mt-8 items-center space-y-2">
-          <Text className="text-sm text-gray-500">Lembrou sua senha?</Text>
+          <Text className="text-sm text-gray-400">Lembrou sua senha?</Text>
           <TouchableOpacity
-            className="w-full border border-gray-300 py-3 rounded-full flex items-center justify-center"
+            className="w-full border border-gray-300 py-3 rounded-xl flex items-center justify-center"
             onPress={() => router.push("/login")}
           >
-            <Text className="text-gray-700 font-semibold text-base">Voltar para o login</Text>
+            <Text className="text-white font-semibold text-base">Voltar para o login</Text>
           </TouchableOpacity>
         </View>
       </View>
