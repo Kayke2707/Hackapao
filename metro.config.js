@@ -1,9 +1,6 @@
-const { getDefaultConfig } = require("@expo/metro-config");
+const { getDefaultConfig } = require("expo/metro-config");
+const { withNativeWind } = require('nativewind/metro');
 
-const defaultConfig = getDefaultConfig(__dirname);
+const config = getDefaultConfig(__dirname)
 
-module.exports = {
-  resolver: {
-    assetExts: [...defaultConfig.resolver.assetExts, "db"],
-  },
-};
+module.exports = withNativeWind(config, { input: './app/globals.css' })
