@@ -50,7 +50,7 @@ export default function Index() {
                     </Text>
 
                     <Text className="text-sm text-white">
-                        -10 perguntas
+                        -15 perguntas
                     </Text>
                 </View>
 
