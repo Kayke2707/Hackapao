@@ -122,7 +122,7 @@ export default function Index() {
       } else {
         setfim(true);
       }
-    }, 1000);
+    }, 100);
   };
 
   return (
