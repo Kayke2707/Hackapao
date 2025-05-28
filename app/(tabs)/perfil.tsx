@@ -82,17 +82,21 @@ export default function Index() {
           <Text className="text-white font-semibold text-base">Sair</Text>
         </TouchableOpacity> */}
 
-        <View className="flex-row justify-between w-52 mt-5">
-          <TouchableOpacity className="flex-1 bg-gray-700 rounded-xl py-2 mx-1">
-            <Text className="text-white text-center">Acertos</Text>
-            {/* <Text className="text-white text-center text-xl">{acertos}</Text> */}
-          </TouchableOpacity>
-          <TouchableOpacity className="flex-1 bg-gray-700 rounded-xl py-2 mx-1">
-            <Text className="text-white text-center">Erros</Text>
-            {/* <Text className="text-white text-center text-xl">{erros}</Text> */}
-          </TouchableOpacity>
+        <View className="flex-row justify-between w-72 mt-10 bg-[#1F1F1F] rounded-xl gap-x-3">
+          <View className="flex-1 bg-[#2C2C2C] rounded-xl py-3 w-32">
+            <Text className="text-white text-center text-base">Acertos</Text>
+            <View className="w-16 h-[1px] bg-white my-1 self-center" />
+            <Text className="text-green-500 text-center text-xl">0</Text>
+          </View>
+
+          <View className="flex-1 bg-[#2C2C2C] rounded-xl py-3 w-32">
+            <Text className="text-white text-center text-base">Erros</Text>
+            <View className="w-16 h-[1px] bg-white my-1 self-center" />
+            <Text className="text-red-600 text-center text-xl">0</Text>
+          </View>
         </View>
+        
       </View>
-    </View>
+    </View> 
   );
 }

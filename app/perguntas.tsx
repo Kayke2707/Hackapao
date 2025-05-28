@@ -1,5 +1,6 @@
 import { Text, View, TouchableOpacity } from "react-native";
 import { useState } from "react";
+import { router } from "expo-router";
 
 export default function Index() {
   const Perguntas = [
@@ -126,6 +127,7 @@ export default function Index() {
 
   return (
     <View className="w-full h-full justify-center items-center bg-[#121212] px-4">
+
       {fim ? (
         <View className="items-center">
           <Text className="text-white text-3xl font-bold mb-4">
@@ -133,9 +135,11 @@ export default function Index() {
           </Text>
           <Text className="text-white text-lg mb-2">Acertos: {acertos}</Text>
           <Text className="text-white text-lg">Erros: {erros}</Text>
-          <TouchableOpacity className=" flex justify-center items-center h-8 w-20 text-white font-bold rounded-xl bg-blue-600">Voltar</TouchableOpacity>
+          <TouchableOpacity className=" flex justify-center items-center h-8 w-20 mt-5 text-white font-bold rounded-xl bg-blue-600"
+          onPress={() => router.push("/(tabs)/home")}>Voltar</TouchableOpacity>
         </View>
       ) : (
+
         <View className="w-full flex justify-center items-center">
           <Text className="text-white text-xl font-bold mb-4 text-center">
             Pergunta {perguntt + 1} de {Perguntas.length}
