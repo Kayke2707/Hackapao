@@ -33,7 +33,7 @@ export default function LoginForm({ onLogin, onNavigateToCadastro, onNavigateToE
       setIsLoading(false);
       console.log("Login com:", { email, senha });
       alert("Login realizado com sucesso!");
-      onLogin();
+      router.push("/home");
     }, 1000);
   };
 

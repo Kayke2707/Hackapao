@@ -33,7 +33,7 @@ export default function CadastroForm({ onCadastro, onNavigateToLogin }: Cadastro
     setTimeout(() => {
       setIsLoading(false);
       alert("Cadastro realizado com sucesso!");
-      onCadastro();
+      router.push("/home");
     }, 1000);
   };
 
