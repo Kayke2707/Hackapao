@@ -114,7 +114,6 @@ export default function Index() {
       seterros(erros + 1);
     }
 
-    
     setTimeout(() => {
       const proximapergunta = perguntt + 1;
       if (proximapergunta < Perguntas.length) {
