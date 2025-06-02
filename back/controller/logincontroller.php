@@ -22,7 +22,7 @@ class LoginController{
         $usuario = $db->fetchAll(PDO::FETCH_ASSOC);
         if($usuario){
             session_start();
-            $_SESSION["id_usuario"] = $usuario[0]["id"];
+            $_SESSION["id"] = $usuario[0]["id"];
             return true;
         }else{
             return false;
