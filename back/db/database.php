@@ -3,7 +3,7 @@
 class Database
 {
     private $server = "localhost";
-    private $dbnome = "quizhack";
+    private $dbnome = "turma31";
     private $user = "root";
     private $password = "";
 
